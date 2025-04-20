@@ -1,3 +1,6 @@
+//abstraction
+// encapsulation
+
 public class Facade {
     public static void main(String[] args) {
 

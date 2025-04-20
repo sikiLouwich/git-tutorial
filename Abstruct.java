@@ -5,7 +5,7 @@ public class Abstruct {
 }
 
 
-abstract class Animal {
+abstract class Animal  {
     protected String name;
     Animal(String name) {
         this.name = name;

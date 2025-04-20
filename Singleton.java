@@ -1,18 +1,20 @@
-public class Singleton {
+class Singleton {
     private static Singleton instance;
-    private Singleton() {}
-    public static Singleton getInstance() {
-        if (instance == null) {
+    private Singleton() {
+
+    }
+    public static Singleton get(){
+        if(instance == null){
             instance = new Singleton();
         }
         return instance;
     }
 }
 
-class BasicSingleton {
-    public static void main(String[] args) {
-        Singleton singleton = Singleton.getInstance();
-        Singleton singleton2 = Singleton.getInstance();
-        System.out.println(singleton == singleton2);
+class sss{
+    private static int x;
+    sss(int x){
+        this.x = x;
     }
+
 }
