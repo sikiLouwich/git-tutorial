@@ -1,6 +1,5 @@
-import java.awt.*;
 import java.util.Stack;
-
+//caretaker
 public class Editor {
     public static void main(String[] args) {
         TextEditor textEditor = new TextEditor();
@@ -25,6 +24,7 @@ public class Editor {
     }
 }
 
+//originator
 class TextEditor {
     private String text;
     private Stack<TextEditor.Memento> stack = new Stack<>();
@@ -51,7 +51,7 @@ class TextEditor {
     }
 
 
-
+    //memento
     public static class Memento{
         private final String text;
         private Memento(String text){
