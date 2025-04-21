@@ -2,8 +2,6 @@
 //we can add decorators during runtime
 //easy to recognize - the class implement interface and hold instance ???
 
-import java.util.ArrayList;
-import java.util.List;
 
 interface Fish{
     String eat();

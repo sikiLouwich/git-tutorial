@@ -2,63 +2,54 @@ import java.util.Stack;
 //caretaker
 public class Editor {
     public static void main(String[] args) {
-        TextEditor textEditor = new TextEditor();
-        textEditor.write("first");
-        textEditor.save();
-        textEditor.print();
-
-        textEditor.write("second");
-        textEditor.print();
-        textEditor.write("third");
-        textEditor.print();
-        textEditor.save();
-
-        textEditor.undo();
-        textEditor.print();
-        textEditor.undo();
-        textEditor.print();
-        textEditor.undo();
-        textEditor.print();
-
+        Originator originator = new Originator();
+        originator.write("siki");
+        originator.read();
+        originator.write("siki");
+        originator.save();
+        originator.read();
+        originator.write("siki");
+        originator.write("siki");
+        originator.read();
+        originator.restore();
+        originator.read();
 
     }
 }
 
 //originator
-class TextEditor {
-    private String text;
-    private Stack<TextEditor.Memento> stack = new Stack<>();
+class Originator{
+    String state;
+    Memento memento;
+    public Originator(){
+        this.state = "";
+    }
 
-    public void write(String text) {
-        this.text = text;
+    public void write(String text){
+        this.state += text;
+    }
+    public void read(){
+        System.out.println(this.state);
     }
 
     public void save(){
-        Memento state =  new Memento(text);
-        stack.push(state);
+        memento = new Memento(state);
     }
 
-
-    public void print(){
-        System.out.println(text);
-    }
-
-    public void undo(){
-        if(stack.isEmpty()){
-            return;
-        }
-        text = stack.pop().getText();
+    public void restore(){
+        this.state = memento.getState();
     }
 
 
     //memento
     public static class Memento{
-        private final String text;
-        private Memento(String text){
-            this.text = text;
+        private final String state;
+        private Memento(String state){
+            this.state = state;
         }
-        private String getText(){
-            return text;
+
+        public String getState(){
+            return state;
         }
     }
 }

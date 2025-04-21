@@ -3,9 +3,9 @@ public class Abstruct {
 
     }
 }
+class ZZZ{}
 
-
-abstract class Animal  {
+abstract class Animal extends ZZZ {
     protected String name;
     Animal(String name) {
         this.name = name;
@@ -19,6 +19,7 @@ abstract class Animal  {
 //        return name;
 //    }
 }
+
 
 class Dog extends Animal {
     Dog(String name) {
